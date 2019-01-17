@@ -28,6 +28,39 @@ valores */
 /* background gris = #1b2127 */
 /* celeste = #026fff */
 
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?a2490c');
+  src:  url('../fonts/icomoon.eot?a2490c#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?a2490c') format('truetype'),
+    url('../fonts/icomoon.woff?a2490c') format('woff'),
+    url('../fonts/icomoon.svg?a2490c#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+
+
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
@@ -76,6 +109,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 
 }
 
@@ -91,30 +125,15 @@ h2 {
 }
 
 .project {
-  /* border-top: 10px solid red;
-  border-right: 10px solid green;
-  border-left: 10px solid orange;
-  border-bottom: 10px solid pink; */
-  /* color: blue; */
-  /* border-top-color: red;
-  border-top-width: 15px;
-  border-top-style: solid; */
   border: 1px solid gray;
   border-radius: 10px;
-  /* border-top-left-radius: 50px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
-  /* margin: 10px; */
   margin-bottom: 15px;
-  /* margin-right
-  margin-left 
-  margin-top */
   padding: 20px;
   background: white;
-  display: flex;
+  display: flex; 
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .project-course,
 .project-date,
@@ -139,11 +158,15 @@ h2 {
 
 
 .project-details {
-  width: 500px;
+  width: 50%;
 }
 
 .project-imageContainer {
-  width: 500px;
+  width: 50%;
+}
+
+.project-imageContainer img {
+  max-width: 100%;
 }
 
 .header {
@@ -153,6 +176,7 @@ h2 {
   height: 70px;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 ol,
@@ -209,6 +233,8 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+
 }
 
 .footer img {
@@ -227,8 +253,8 @@ figure {
   margin-left: 20px;
 }
 .event { 
-  margin: 10px;
-  width: 480px;
+  margin: 1%;
+  width: 48%;
   flex-shrink: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -266,6 +292,8 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+
 }
 
 .social {
@@ -321,11 +349,167 @@ figure {
 
 .container {
   /* border: 1px solid red; */
-  width: 1000px;
+  max-width: 1000px;
+  flex:1;
   margin: 0 auto;
   display: inherit;
   justify-content: inherit;
   align-items: inherit;
   height: inherit;
   flex-wrap: inherit;
+}
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0, .8);
+  display: none;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  left: 5px;
+  top: 5px;
+  color: white;
+  /* font-size: 50px; */
+}
+@media screen and (max-width: 1024px) {
+  .container{
+    padding: 0 1em;
+  }
+  .hero{
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+  .hero-image{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%
+  }
+  h1 {
+    font-size: 2m;
+    z-index: 2;
+  }
+}
+@media screen and (max-width: 767px) {
+  .burger-button {
+    display: block;
+  }
+
+  .header{
+    display: block;
+    height: auto;
+  } 
+  .header ol {
+    display: block;
+  } 
+  .header ol li {
+    height: 50px;
+  } 
+  .header a {
+    justify-content: center;
+  } 
+  .header .logo {
+    text-align: center;
+  } 
+  .project {
+    display: block;
+  }
+  .project-imageContainer {
+    width: auto;
+    text-align: center;
+  }
+  .project-details {
+    width: auto;
+    /* font-size: 16px */
+  }
+  .project-course, .project-date, .project-url{
+    margin: 0.3em 0;
+  }
+
+  .project-title {
+    font-size: 1.5em
+    margin: 0.3em;
+  }
+.project-url {
+  font-size: 1em
+
+}
+.project-course{
+  font-size: 0.7em
+  
+}
+.project-date{
+  font-size: 1em
+
+}
+.project-description{
+  font-size: 0.8em
+
+.event {
+  width: auto;
+  flex-shrink: initial;
+}
+
+ivent img {
+  width: 100%;
+}
+
+}
+
+
+
+}
+@media screen and (max-width: 700px) {
+  .footer{
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+ 
+}
+@media screen and (max-width: 570px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .project-details {
+    width: auto;
+    font-size: 12px
+  }
+  .event-detail{
+    /* 1em = 16px */
+    margin: -2em .5em .5em;
+    padding: 1em;
+  }
+  .contact {
+    height: auto;
+    padding: 1.5em 0;
+    text-align: center;
+    display: block;
+  }
+  .form-email button {
+    margin: 1em auto;
+  }
+  .form-email h3 {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .project-details {
+    width: auto;
+    font-size: 12px
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+  .hero {
+    padding: 2em 1em;
+  }
+
 }
